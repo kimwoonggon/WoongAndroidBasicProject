@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Toast
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +26,12 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "1번 클릭 완료", Toast.LENGTH_SHORT).show()
         }
 
+
         // 2. 화면이 클릭되면 다음 화면으로 넘어가서, 사진을 크게 보여준다.
-                
+        val intent = Intent(this, Bts1Activity::class.java)
+        image1.setOnClickListener {
+            startActivity(intent)
+        }
+
     }
 }
