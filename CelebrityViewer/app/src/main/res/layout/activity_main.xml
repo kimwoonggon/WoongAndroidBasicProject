@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Linear 주석입니다. -->
+<!-- Linear 주석입니다.
+    Vertical로 세로로 정렬 -->
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp">
@@ -23,7 +25,22 @@
             android:layout_width="120dp"
             android:layout_height="120dp"/>
     </LinearLayout >
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <ImageView
+            android:src="@drawable/bts_4"
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+        <ImageView
+            android:src="@drawable/bts_5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+        <ImageView
+            android:src="@drawable/bts_6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+    </LinearLayout >
 
 
 
