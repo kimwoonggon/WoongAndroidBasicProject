@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CelebrityViewer">
         <activity
+            android:name=".Bts7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Bts6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Bts5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Bts4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Bts3Activity"    
+            android:exported="false" />
+        <activity
+            android:name=".Bts2Activity"
+            android:exported="false" />
+        <activity
             android:name=".Bts1Activity"
             android:exported="false" />
         <activity
