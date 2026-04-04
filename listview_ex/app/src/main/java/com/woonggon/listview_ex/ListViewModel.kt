@@ -1,4 +1,6 @@
 package com.woonggon.listview_ex
 
-class ListViewModel {
-}
+data class ListViewModel (
+    var title : String = "",
+    var content : String = ""
+)
