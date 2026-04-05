@@ -2,6 +2,7 @@ package com.woonggon.wisesaying
 
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,5 +22,14 @@ class SentenceActivity : AppCompatActivity() {
         val sentenceList = intent.getStringArrayListExtra("sentenceList") ?: arrayListOf()
         val listView = findViewById<ListView>(R.id.sentenceListView)
         listView.adapter = SentenceAdapter(this, sentenceList)
+    
+        listView.setOnItemClickListener { parent, view, position, id ->
+            // 아이템 클릭 시 동작할 코드 작성
+            val selectedSentence = sentenceList[position]
+            // 예: 토스트 메시지로 선택된 문장 표시
+            Toast.makeText(this, selectedSentence, Toast.LENGTH_SHORT).show()
+        }
     }
+
+
 }
