@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class Singer1Fragment : Fragment() {
 
@@ -20,6 +22,36 @@ class Singer1Fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_singer1, container, false)
+
+
+        val items = mutableListOf<String>()
+        items.add("노래1")
+        items.add("노래2")
+        items.add("노래3")
+        items.add("노래1")
+        items.add("노래2")
+        items.add("노래3")
+        items.add("노래1")
+        items.add("노래2")
+        items.add("노래3")
+        items.add("노래1")
+        items.add("노래2")
+        items.add("노래3")
+        items.add("노래1")
+        items.add("노래2")
+        items.add("노래3")
+        items.add("노래1")
+        items.add("노래2")
+        items.add("노래3")
+        
+
+        val rv = view.findViewById<RecyclerView>(R.id.singRV)
+        val rvAdapter = RVAdapter(items)
+
+        rv.adapter = rvAdapter
+
+        rv.layoutManager = LinearLayoutManager(context)
+        
 
         val image2 = view.findViewById<ImageView>(R.id.image2)
         image2.setOnClickListener {
