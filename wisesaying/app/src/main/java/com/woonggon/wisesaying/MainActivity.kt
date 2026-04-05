@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.showAllSentenceBtn.setOnClickListener {
             val intent = Intent(this, SentenceActivity::class.java)
+            intent.putStringArrayListExtra("sentenceList", ArrayList(sentenceList))
             startActivity(intent)
         }
 

@@ -1,6 +1,7 @@
 package com.woonggon.wisesaying
 
 import android.os.Bundle
+import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,8 +17,9 @@ class SentenceActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val sentenceList = intent.getStringArrayListExtra("sentenceList") ?: arrayListOf()
+        val listView = findViewById<ListView>(R.id.sentenceListView)
+        listView.adapter = SentenceAdapter(this, sentenceList)
     }
-     
-
-
 }
