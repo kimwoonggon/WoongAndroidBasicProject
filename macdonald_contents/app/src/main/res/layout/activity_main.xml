@@ -9,22 +9,40 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/logoutBtn"
-        android:text="로그아웃"
+        android:id="@+id/bookmarkBtn"
+        android:background="@drawable/radius"
+        android:padding="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="북마크"
+        android:layout_margin="15sp"
         android:textSize="16sp"
-        android:textColor="#ffffff"
-        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="72dp"
+        android:padding="10dp"
+        android:text="로그아웃"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

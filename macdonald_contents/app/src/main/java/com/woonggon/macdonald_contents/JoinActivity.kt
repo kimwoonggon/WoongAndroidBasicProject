@@ -43,8 +43,10 @@ class JoinActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            LoadingDialog.show(this, "회원가입중입니다...")
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
+                    LoadingDialog.dismiss()
                     if (task.isSuccessful) {
                         Log.d("JoinActivity", "createUserWithEmail:success")
                         Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show()

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.content.Intent
 import android.net.Uri
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
@@ -27,6 +28,15 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val bookmarkButton = findViewById<TextView>(R.id.bookmarkBtn)
+        bookmarkButton.setOnClickListener {
+            val intent = Intent(this, BookMarkActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
         items.add(ContentsModel("https://www.mcdonalds.co.kr/kor/menu/burger",
             "https://www.mcdonalds.co.kr/upload/2026/03/Corp_PC_VIEW_772x530_%EB%B2%A0%ED%86%A0%EB%94%94%EB%B0%94%EC%A7%88%ED%81%AC%EB%A6%BC_EVM_2.png",
             "베토디바질크림치즈세트"))
@@ -80,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, ViewActivity::class.java)
                 intent.putExtra("url", "https://www.mcdonalds.co.kr/kor/menu/detail/798/2/16?exposure=recommend")
                 intent.putExtra("title", items[position].titleText)
-                intent.putExtra("imageUrl", items[position].ImageUrl)
+                intent.putExtra("imageUrl", items[position].imageUrl)
                 startActivity(intent)
             }
         }

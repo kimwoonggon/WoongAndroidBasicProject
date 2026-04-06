@@ -44,8 +44,10 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            LoadingDialog.show(this, "로그인중입니다...")
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
+                    LoadingDialog.dismiss()
                     if (task.isSuccessful) {
                         Log.d("LoginActivity", "signInWithEmail:success")
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()

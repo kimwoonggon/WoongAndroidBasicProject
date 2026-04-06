@@ -52,7 +52,7 @@ class ViewActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (child in snapshot.children) {
                         val bookmark = child.getValue(ContentsModel::class.java)
-                        if (bookmark?.url == url && bookmark?.ImageUrl == imageUrl && bookmark?.titleText == title) {
+                        if (bookmark?.url == url && bookmark?.imageUrl == imageUrl && bookmark?.titleText == title) {
                             savedKey = child.key
                             saveBtn.text = "해제"
                             return
@@ -75,26 +75,32 @@ class ViewActivity : AppCompatActivity() {
 
             if (savedKey != null) {
                 // 이미 저장됨 → 해제
+                LoadingDialog.show(this, "북마크 해제중입니다...")
                 bookmarksRef.child(savedKey!!).removeValue()
                     .addOnSuccessListener {
+                        LoadingDialog.dismiss()
                         savedKey = null
                         saveBtn.text = "저장"
                         Toast.makeText(this, "해제 완료", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener {
+                        LoadingDialog.dismiss()
                         Toast.makeText(this, "해제 실패: ${it.message}", Toast.LENGTH_SHORT).show()
                     }
             } else {
                 // 미저장 → 저장
+                LoadingDialog.show(this, "북마크에 저장중입니다...")
                 val key = bookmarksRef.push().key
                 if (key != null) {
-                    bookmarksRef.child(key).setValue(ContentsModel(url, title, imageUrl))
+                    bookmarksRef.child(key).setValue(ContentsModel(url, imageUrl, title))
                         .addOnSuccessListener {
+                            LoadingDialog.dismiss()
                             savedKey = key
                             saveBtn.text = "해제"
                             Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show()
                         }
                         .addOnFailureListener {
+                            LoadingDialog.dismiss()
                             Toast.makeText(this, "저장 실패: ${it.message}", Toast.LENGTH_SHORT).show()
                         }
                 }
