@@ -1,4 +1,3 @@
 package com.woonggon.mango_contents
 
-class ContentsModel {
-}
+data class ContentsModel(val url: String, val ImageUrl: String, val titleText: String)
