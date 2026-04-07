@@ -1,4 +1,6 @@
 package com.woonggon.diet_memo
 
-class DataModel {
-}
+data class DataModel (
+    val date : String = "",
+    val memo : String = ""
+)
